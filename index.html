@@ -1,6 +1,6 @@
 <!DOCTYPE html><html lang="en"><head><meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<meta name="theme-color" content="#12141C">
+<meta name="theme-color" content="#203764">
 <meta name="mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
@@ -11,105 +11,101 @@
 <title>Pending Delivery - Today / Tomorrow</title>
 <style>
 *{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
-body{margin:0;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Arial,sans-serif;background:#0B0D13;color:#fff;min-height:100vh}
-.phone{max-width:480px;margin:0 auto;min-height:100vh;padding:16px 16px 150px;position:relative;background:radial-gradient(600px 300px at 80% -50px,rgba(255,107,107,.12),transparent),radial-gradient(500px 260px at 10% 0%,rgba(255,255,255,.05),transparent),#12141C}
-/* top greeting like Hi Rakib */
-.top{display:flex;align-items:center;justify-content:space-between;margin:2px 0 14px}
-.back{width:42px;height:42px;border-radius:14px;background:#1E2230;color:#fff;border:1px solid rgba(255,255,255,.08);font-size:20px;font-weight:700}
+body{margin:0;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Arial,sans-serif;background:#E8EBEF;color:#1F2937;min-height:100vh}
+.phone{max-width:520px;margin:0 auto;min-height:100vh;padding:14px 14px 150px;background:#EEF1F5}
+.top{display:flex;align-items:center;margin:2px 0 12px}
+.back{width:42px;height:42px;border-radius:12px;background:#fff;color:#203764;border:1px solid #D5DBE3;font-size:20px;font-weight:700}
 .greet{flex:1;margin-left:12px}
-.greet b{font-size:16px}
-.greet small{display:block;font-size:11.5px;color:#9AA0B4}
-.avatar{position:relative;width:44px;height:44px;border-radius:50%;background:linear-gradient(135deg,#FF8A70,#F25C5C);display:flex;align-items:center;justify-content:center;font-size:20px}
-.avatar i{position:absolute;top:-6px;right:-6px;background:#fff;color:#F25C5C;font-size:10.5px;font-style:normal;font-weight:800;min-width:20px;height:20px;border-radius:10px;display:flex;align-items:center;justify-content:center;padding:0 5px}
-/* coral balance card like VISA */
-.bal{background:linear-gradient(135deg,#FF8A70,#F25C5C 70%);border-radius:24px;padding:18px;box-shadow:0 10px 28px rgba(242,92,92,.35);position:relative;overflow:hidden}
-.bal::after{content:'';position:absolute;right:-40px;top:-40px;width:150px;height:150px;border:1.5px solid rgba(255,255,255,.4);border-radius:50%}
-.bal::before{content:'';position:absolute;right:-20px;top:-20px;width:110px;height:110px;border:1.5px solid rgba(255,255,255,.4);border-radius:50%}
-.bal small{font-size:11.5px;opacity:.9;letter-spacing:.4px}
-.bal h1{margin:2px 0 0;font-size:30px}
-.bal .sqm{font-size:13px;opacity:.92}
-.bal .brand{position:absolute;right:16px;bottom:14px;font-weight:800;letter-spacing:2px;font-size:15px;opacity:.95}
-.bal .gen{font-size:10.5px;opacity:.8;margin-top:6px}
-/* Salary/Business mini cards */
-.duo{display:flex;gap:10px;margin-top:12px}
-.mini{flex:1;background:#1E2230;border:1px solid rgba(255,255,255,.07);border-radius:18px;padding:12px;text-align:center}
-.mini.hot{background:linear-gradient(135deg,#FF8A70,#F25C5C);border:none}
-.mini small{font-size:11px;color:#9AA0B4}
-.mini.hot small{color:#fff;opacity:.9}
-.mini b{font-size:19px;display:block;margin-top:2px}
-.mini span{font-size:11px;color:#9AA0B4}
-.mini.hot span{color:#fff}
-/* section head like Upcoming Money + See all */
-.rowhead{display:flex;justify-content:space-between;align-items:center;margin:16px 2px 8px}
-.rowhead b{font-size:15px}
-.rowhead a{font-size:12px;color:#9AA0B4;text-decoration:none;cursor:pointer}
-/* search + chips dark */
-.search{width:100%;margin:2px 0 8px;padding:14px 16px;border-radius:16px;border:1px solid rgba(255,255,255,.1);font-size:15px;background:#1E2230;color:#fff}
-.search::placeholder{color:#6B7186}
-.chips{display:flex;gap:8px;overflow-x:auto;padding:2px 0 8px;-webkit-overflow-scrolling:touch}
-.chip{flex:0 0 auto;padding:9px 15px;border-radius:999px;border:1px solid rgba(255,255,255,.14);background:#1E2230;color:#C6CBD8;font-size:13px;font-weight:700}
-.chip.on{background:linear-gradient(135deg,#FF8A70,#F25C5C);border-color:transparent;color:#fff}
-.chip small{font-weight:400;opacity:.85}
-/* transaction cards */
-.sec{margin:12px 2px 8px;font-size:13px;font-weight:800;color:#9AA0B4;display:flex;justify-content:space-between;align-items:center}
-.sec .pill{background:#1E2230;border:1px solid rgba(255,255,255,.1);color:#fff;font-size:11px;padding:4px 10px;border-radius:99px}
-.txn{background:#1B1F2D;border:1px solid rgba(255,255,255,.07);border-radius:20px;padding:13px;margin-bottom:11px;box-shadow:0 4px 14px rgba(0,0,0,.35)}
-.txn.today{border-color:#FF6B6B;box-shadow:0 0 0 1.5px #FF6B6B,0 4px 14px rgba(0,0,0,.35)}
-.txn.overdue{border-color:#D11A1A;box-shadow:0 0 0 1.5px #D11A1A}
-.txn .top{display:flex;align-items:center;gap:10px;margin:0}
-.ic{flex:0 0 auto;width:42px;height:42px;border-radius:50%;background:rgba(255,107,107,.16);display:flex;align-items:center;justify-content:center;font-size:19px}
-.mid{flex:1;min-width:0}
-.mid .so{font-size:15px;font-weight:800}
-.mid .cu{font-size:12px;color:#9AA0B4;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-.right{text-align:right}
-.right .q{font-size:15px;font-weight:800}
-.right .d{font-size:10px;font-weight:800;padding:4px 9px;border-radius:99px;display:inline-block;margin-top:3px}
-.d.today{background:#FF6B6B;color:#fff}.d.tomorrow{background:rgba(255,255,255,.14);color:#fff}
-.d.overdue{background:#D11A1A;color:#fff}.d.upcoming{background:#2e7d32;color:#fff}.d.nodate{background:rgba(255,255,255,.1);color:#9AA0B4}
-.item{background:#12141C;border-radius:13px;padding:9px 11px;margin-top:10px}
-.item .lab{font-size:10px;color:#6B7186;font-weight:700;letter-spacing:.5px}
-.item .val{font-size:13.5px;font-weight:600;margin-top:1px;word-break:break-word}
-.meta{font-size:11.5px;color:#9AA0B4;margin-top:8px}
-.meta b{color:#C6CBD8}
-.cmt{margin-top:8px;background:rgba(255,107,107,.1);border:1px solid rgba(255,107,107,.25);border-radius:12px;padding:8px 10px;font-size:12px;line-height:1.4;color:#FFD7D7}
-/* bottom nav like banking app */
-.nav{position:fixed;left:0;right:0;bottom:0;z-index:30;background:#1A1E2B;border-top:1px solid rgba(255,255,255,.08);padding:6px 8px calc(8px + env(safe-area-inset-bottom))}
-.nav .tot{text-align:center;font-size:11px;color:#9AA0B4;font-weight:700;padding:2px 0 6px}
-.nav .row{max-width:480px;margin:0 auto;display:flex;align-items:center;justify-content:space-around}
-.nbtn{background:none;border:none;color:#6B7186;font-size:10px;display:flex;flex-direction:column;align-items:center;gap:3px;padding:6px 10px;cursor:pointer}
-.nbtn span{font-size:19px}
-.nbtn.on{color:#FF6B6B}
-.nbtn.center{width:56px;height:56px;border-radius:50%;background:linear-gradient(135deg,#FF8A70,#F25C5C);color:#fff;font-size:24px;margin-top:-26px;box-shadow:0 8px 20px rgba(242,92,92,.5);border:4px solid #12141C}
-.empty{background:#1E2230;color:#9AA0B4;border-radius:18px;padding:18px;text-align:center;font-size:14px}
-.hide{display:none}
-.lockbtn{width:42px;height:42px;border-radius:14px;background:#1E2230;color:#9AA0B4;border:1px solid rgba(255,255,255,.1);font-size:18px;margin-left:8px}
-.abanner{display:none;background:linear-gradient(135deg,#FF8A70,#F25C5C);border-radius:16px;padding:10px 14px;font-size:12.5px;font-weight:800;margin-top:12px;text-align:center}
+.greet b{font-size:16px;color:#111827}
+.greet small{display:block;font-size:11.5px;color:#6B7280}
+.avatar{position:relative;width:44px;height:44px;border-radius:50%;background:#203764;display:flex;align-items:center;justify-content:center;font-size:20px}
+.avatar i{position:absolute;top:-6px;right:-6px;background:#203764;color:#fff;font-size:10.5px;font-style:normal;font-weight:800;min-width:20px;height:20px;border-radius:10px;display:flex;align-items:center;justify-content:center;padding:0 5px;border:2px solid #EEF1F5}
+.lockbtn{width:42px;height:42px;border-radius:12px;background:#fff;color:#6B7280;border:1px solid #D5DBE3;font-size:18px;margin-left:8px}
+.bal{background:linear-gradient(135deg,#203764,#2E4E89);border-radius:18px;padding:18px;color:#fff;box-shadow:0 4px 14px rgba(32,55,100,.25)}
+.bal small{font-size:11px;opacity:.8;letter-spacing:1px;font-weight:700}
+.bal h1{margin:2px 0 0;font-size:28px}
+.bal .sqm{font-size:13px;opacity:.9}
+.bal .brand{position:absolute;right:16px;bottom:14px;font-weight:800;letter-spacing:2px;font-size:14px;opacity:.9}
+.bal{position:relative;overflow:hidden}
+.bal .gen{font-size:10.5px;opacity:.7;margin-top:6px}
+.abanner{display:none;background:#203764;border-radius:12px;padding:10px 14px;font-size:12.5px;font-weight:700;margin-top:10px;text-align:center;color:#fff}
 .abanner.show{display:block}
-.abanner button{background:#fff;color:#F25C5C;border:none;border-radius:99px;padding:6px 14px;font-weight:800;margin-left:8px;font-size:12px}
+.abanner button{background:#fff;color:#203764;border:none;border-radius:99px;padding:6px 14px;font-weight:800;margin-left:8px;font-size:12px}
+.daystrip{display:flex;gap:8px;margin-top:12px}
+.day{flex:1;cursor:pointer;background:#fff;border:1.5px solid #D5DBE3;border-radius:14px;padding:10px 2px 8px;text-align:center;color:#111827}
+.day b{display:block;font-size:30px;font-weight:800;line-height:1;color:#203764}
+.day small{display:block;font-size:10px;font-weight:800;letter-spacing:.8px;margin-top:2px;color:#6B7280}
+.day span{display:block;font-size:10.5px;font-weight:700;margin-top:3px;color:#374151}
+.day span i{font-style:normal}
+.day.on{background:#203764;border-color:#203764;color:#fff}
+.day.on b,.day.on small,.day.on span{color:#fff}
+.day.od b{color:#B00020}
+.day.od.on{background:#B00020;border-color:#B00020}
+.day.od.on b,.day.od.on small,.day.od.on span{color:#fff}
+.daysum{display:none;background:#fff;border:1px solid #D5DBE3;border-radius:16px;padding:14px;margin-top:12px;box-shadow:0 2px 8px rgba(16,24,40,.06)}
+.daysum.show{display:block}
+.daysum .ds-top{display:flex;align-items:center;gap:12px;border-bottom:2px solid #203764;padding-bottom:8px}
+.daysum .ds-top>b{font-size:30px;font-weight:800;color:#203764;line-height:1}
+.daysum .ds-top small{font-size:10.5px;font-weight:800;letter-spacing:1px;color:#374151}
+.daysum .ds-top .dd{font-size:12px;font-weight:600;color:#6B7280;margin-top:2px}
+table.dst{width:100%;border-collapse:collapse;margin-top:8px;font-size:13px}
+table.dst th{background:#203764;color:#fff;text-align:left;padding:8px 10px;font-size:11px;letter-spacing:.5px}
+table.dst th:nth-child(2),table.dst th:nth-child(3){text-align:right}
+table.dst td{padding:8px 10px;border-bottom:1px solid #E5E7EB}
+table.dst td:nth-child(2),table.dst td:nth-child(3){text-align:right;font-variant-numeric:tabular-nums}
+table.dst tr:nth-child(even) td{background:#F6F8FA}
+table.dst tr.total td{background:#EAF0FA;font-weight:800;border-top:2px solid #203764}
+.rowhead{display:flex;justify-content:space-between;align-items:center;margin:16px 2px 8px}
+.rowhead b{font-size:15px;color:#111827}
+.rowhead a{font-size:12px;color:#4B5563;text-decoration:none;cursor:pointer}
+.search{width:100%;margin:2px 0 8px;padding:13px 15px;border-radius:12px;border:1px solid #D5DBE3;font-size:15px;background:#fff;color:#111827}
+.search::placeholder{color:#9CA3AF}
+.chips{display:flex;gap:8px;overflow-x:auto;padding:2px 0 8px;-webkit-overflow-scrolling:touch}
+.chip{flex:0 0 auto;padding:9px 15px;border-radius:999px;border:1px solid #D5DBE3;background:#fff;color:#4B5563;font-size:13px;font-weight:700}
+.chip.on{background:#203764;border-color:#203764;color:#fff}
+.chip small{font-weight:400;opacity:.8}
+.sec{margin:12px 2px 8px;font-size:12.5px;font-weight:800;color:#6B7280;display:flex;justify-content:space-between;align-items:center;letter-spacing:.4px}
+.sec .pill{background:#E5E7EB;color:#374151;font-size:11px;padding:4px 10px;border-radius:99px}
+.txn{background:#fff;border:1px solid #E2E6EB;border-left:5px solid #9CA3AF;border-radius:14px;padding:13px;margin-bottom:10px;box-shadow:0 1px 4px rgba(16,24,40,.06)}
+.txn.today{border-left-color:#203764}
+.txn.tomorrow{border-left-color:#6B8DD6}
+.txn.overdue{border-left-color:#B00020}
+.txn.upcoming{border-left-color:#2E7D32}
+.txn.nodate{border-left-color:#9CA3AF}
+.txn .top{display:flex;align-items:center;gap:10px;margin:0}
+.ic{flex:0 0 auto;width:40px;height:40px;border-radius:50%;background:#EAF0FA;display:flex;align-items:center;justify-content:center;font-size:18px}
+.mid{flex:1;min-width:0}
+.mid .so{font-size:15px;font-weight:800;color:#111827}
+.mid .cu{font-size:12px;color:#6B7280;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.right{text-align:right;flex:0 0 auto}
+.right .q{font-size:14px;font-weight:800;color:#111827;font-variant-numeric:tabular-nums}
+.right .d{font-size:10px;font-weight:800;padding:4px 9px;border-radius:99px;display:inline-block;margin-top:3px;letter-spacing:.4px}
+.d.today{background:#203764;color:#fff}.d.tomorrow{background:#DBEAFE;color:#1E40AF}
+.d.overdue{background:#FEE2E2;color:#B00020}.d.upcoming{background:#DCFCE7;color:#166534}.d.nodate{background:#F3F4F6;color:#6B7280}
+.item{background:#F3F4F6;border-radius:10px;padding:9px 11px;margin-top:10px}
+.item .lab{font-size:10px;color:#6B7280;font-weight:700;letter-spacing:.5px}
+.item .val{font-size:13.5px;font-weight:600;margin-top:1px;word-break:break-word;color:#111827}
+.meta{font-size:11.5px;color:#6B7280;margin-top:8px}
+.meta b{color:#374151}
+.cmt{margin-top:8px;background:#FFFBEB;border:1px solid #FDE68A;border-radius:10px;padding:8px 10px;font-size:12px;line-height:1.4;color:#92400E}
 .admrow{display:none;margin-top:10px;gap:8px}
 .ADMIN .admrow{display:flex}
-.donebtn{flex:1;background:#2e7d32;color:#fff;border:none;border-radius:12px;padding:11px;font-weight:800;font-size:13px}
-.undobtn{flex:1;background:rgba(255,255,255,.16);color:#fff;border:1px solid rgba(255,255,255,.4);border-radius:12px;padding:11px;font-weight:800;font-size:13px}
+.donebtn{flex:1;background:#2E7D32;color:#fff;border:none;border-radius:10px;padding:11px;font-weight:800;font-size:13px}
+.undobtn{flex:1;background:#fff;color:#374151;border:1px solid #9CA3AF;border-radius:10px;padding:11px;font-weight:800;font-size:13px}
+.editbtn{flex:1;background:#fff;color:#203764;border:1px solid #203764;border-radius:10px;padding:11px;font-weight:800;font-size:13px}
 .txn.is-hidden{opacity:.55}
-.editbtn{flex:1;background:rgba(255,255,255,.14);color:#fff;border:1px solid rgba(255,255,255,.4);border-radius:12px;padding:11px;font-weight:800;font-size:13px}
-.daystrip{display:flex;gap:10px;margin-top:12px}
-.day{flex:1;border:none;cursor:pointer;background:linear-gradient(135deg,#FF8A70,#F25C5C);border-radius:20px;padding:10px 4px 9px;text-align:center;color:#111;box-shadow:0 6px 18px rgba(242,92,92,.35)}
-.day b{display:block;font-size:42px;font-weight:900;line-height:1;letter-spacing:-1px}
-.day small{display:block;font-size:10.5px;font-weight:800;letter-spacing:1px;margin-top:2px}
-.day span{display:block;font-size:10.5px;font-weight:700;margin-top:3px;opacity:.85}
-.day.on{outline:3px solid #fff;box-shadow:0 0 0 3px #111,0 6px 18px rgba(242,92,92,.35)}
-.day.od{background:linear-gradient(135deg,#D11A1A,#8F1010);color:#fff}
-.daysum{display:none;background:linear-gradient(135deg,#FF8A70,#F25C5C);border-radius:22px;padding:16px;margin-top:12px;color:#111;box-shadow:0 8px 22px rgba(242,92,92,.4)}
-.daysum.show{display:block}
-.daysum .ds-top{display:flex;align-items:center;gap:14px}
-.daysum .ds-top>b{font-size:64px;font-weight:900;line-height:1;letter-spacing:-2px}
-.daysum .ds-top small{font-size:11px;font-weight:800;letter-spacing:1.5px}
-.daysum .ds-top .dd{font-size:12px;font-weight:700;margin-top:2px}
-.daysum .ds-lines{margin-top:10px}
-.daysum .ds-lines div{font-size:19px;font-weight:900;font-style:italic;margin-top:2px;word-break:break-word}
+.nav{position:fixed;left:0;right:0;bottom:0;z-index:30;background:#fff;border-top:1px solid #D5DBE3;padding:6px 8px calc(8px + env(safe-area-inset-bottom))}
+.nav .tot{text-align:center;font-size:11px;color:#6B7280;font-weight:700;padding:2px 0 6px}
+.nav .row{max-width:520px;margin:0 auto;display:flex;align-items:center;justify-content:space-around}
+.nbtn{background:none;border:none;color:#9CA3AF;font-size:10px;display:flex;flex-direction:column;align-items:center;gap:3px;padding:6px 10px;cursor:pointer;font-weight:700}
+.nbtn span{font-size:19px}
+.nbtn.on{color:#203764}
+.nbtn.center{width:54px;height:54px;border-radius:50%;background:#203764;color:#fff;font-size:24px;margin-top:-26px;box-shadow:0 6px 16px rgba(32,55,100,.4);border:4px solid #EEF1F5}
+.empty{background:#fff;color:#6B7280;border:1px solid #E2E6EB;border-radius:14px;padding:18px;text-align:center;font-size:14px}
+.hide{display:none}
 </style></head><body>
 <div class="phone">
-  <div class="top"><button class="back" onclick="history.back()">←</button><div class="greet"><b>Hi 👋 Pending Delivery</b><small>Welcome back • Oct - 05 - 2026 21:59</small></div><button class="lockbtn" id="lockBtn">🔒</button><div class="avatar" id="avatar">🧑<i id="cartN">0</i></div></div>
+  <div class="top"><button class="back" onclick="history.back()">←</button><div class="greet"><b>Hi 👋 Pending Delivery</b><small>Welcome back • Oct - 05 - 2026 22:14</small></div><button class="lockbtn" id="lockBtn">🔒</button><div class="avatar" id="avatar">🧑<i id="cartN">0</i></div></div>
   <div class="bal"><small>TOTAL PENDING</small><h1 id="balN">395 orders</h1><div class="sqm" id="balQ">0 sqm • reflects till delivery finishes</div><div class="brand">🚚 DLVR</div><div class="gen">Sale Order No • Item • Qty — live pending list</div></div>
   <div class="abanner" id="abanner">ADMIN MODE - you can mark delivered<button id="lockOff">Lock</button></div><div class="daystrip">
     <button class="day on" data-f="today"><b id="dNum0">--</b><small>TODAY</small><span><i id="sToday">0</i> • <i id="sTodayQ">0</i></span></button>
@@ -241,9 +237,12 @@ function renderDay(list){
   var keys=Object.keys(g).sort(function(a,b){return g[b].q-g[a].q});
   document.getElementById('dsNum').textContent=(F==='overdue'?'!':title);
   document.getElementById('dsDate').textContent=dateStr;
-  var h='';
-  if(!keys.length)h='<div>no items</div>';
-  keys.forEach(function(code){h+='<div>'+code+' - '+Math.round(g[code].q)+' SQM ['+g[code].n+']</div>'});
+  var totQ=0,totN=0;
+  keys.forEach(function(code){totQ+=g[code].q;totN+=g[code].n});
+  var h='<table class="dst"><tr><th>Item</th><th>Qty sqm</th><th>SOs</th></tr>';
+  if(!keys.length)h+='<tr><td colspan="3">no items</td></tr>';
+  keys.forEach(function(code){h+='<tr><td>'+code+'</td><td>'+Math.round(g[code].q)+'</td><td>['+g[code].n+']</td></tr>'});
+  h+='<tr class="total"><td>Total</td><td>'+Math.round(totQ)+'</td><td>['+totN+']</td></tr></table>';
   document.getElementById('dsLines').innerHTML=h;
   panel.classList.add('show');
 }
