@@ -109,10 +109,10 @@ table.dst tr.total td{background:#EAF0FA;font-weight:800;border-top:2px solid #2
 .rmsg{margin-top:8px;background:#2E7D32;color:#fff;border-radius:10px;padding:8px 10px;font-size:12px;font-weight:800;text-align:center;letter-spacing:.6px}
 </style></head><body>
 <div class="phone">
-  <div class="top"><button class="back" onclick="history.back()">←</button><div class="greet"><b>Hi 👋 Pending Delivery</b><small>Welcome back • Oct - 05 - 2026 23:40</small></div><button class="lockbtn" id="lockBtn">🔒</button><div class="avatar" id="avatar">🧑<i id="cartN">0</i></div></div>
+  <div class="top"><button class="back" onclick="history.back()">←</button><div class="greet"><b>Hi 👋 Pending Delivery</b><small>Welcome back • Oct - 06 - 2026 00:03</small></div><button class="lockbtn" id="lockBtn">🔒</button><div class="avatar" id="avatar">🧑<i id="cartN">0</i></div></div>
   <div class="bal"><small>TOTAL PENDING</small><h1 id="balN">390 orders</h1><div class="sqm" id="balQ">0 sqm • reflects till delivery finishes</div><div class="brand">🚚 DLVR</div><div class="gen">Sale Order No • Item • Qty — live pending list</div></div>
   <div class="abanner" id="abanner">ADMIN MODE - you can mark delivered<button id="lockOff">Lock</button></div><div class="daystrip">
-    <button class="day on" data-f="today"><b id="dNum0">--</b><small>TODAY</small><span><i id="sToday">0</i> • <i id="sTodayQ">0</i></span></button>
+    <button class="day" data-f="today"><b id="dNum0">--</b><small>TODAY</small><span><i id="sToday">0</i> • <i id="sTodayQ">0</i></span></button>
     <button class="day" data-f="tomorrow"><b id="dNum1">--</b><small>TOMORROW</small><span><i id="sTom">0</i> • <i id="sTomQ">0</i></span></button>
     <button class="day" data-f="thirdday"><b id="dNum2">--</b><small id="dLab2">DAY 3</small><span><i id="sDay3">0</i> • <i id="sDay3Q">0</i></span></button>
     <button class="day od" data-f="overdue"><b id="dNumOd">!</b><small>OVERDUE</small><span><i id="sOd">0</i> • <i id="sOdQ">0</i></span></button>
@@ -121,14 +121,14 @@ table.dst tr.total td{background:#EAF0FA;font-weight:800;border-top:2px solid #2
   <div class="rowhead"><b>Upcoming Deliveries</b><a id="seeAll">See all</a></div>
   <input id="q" class="search" placeholder="Search SO / customer / item / salesman...">
   <div class="chips" id="chips">
-    <button class="chip on" data-f="today">Today <small id="cToday"></small></button>
+    <button class="chip" data-f="today">Today <small id="cToday"></small></button>
     <button class="chip" data-f="tomorrow">Tomorrow <small id="cTom"></small></button>
     <button class="chip" data-f="thirdday">Day 3 <small id="cDay3"></small></button>
     <button class="chip" data-f="overdue">Overdue <small id="cOd"></small></button>
     <button class="chip" data-f="upcoming">Upcoming <small id="cUp"></small></button>
     <button class="chip" data-f="nodate">No Date <small id="cNd"></small></button>
     <button class="chip" data-f="ready">Ready <small id="cReady"></small></button>
-    <button class="chip" data-f="all">All <small id="cAll"></small></button>
+    <button class="chip on" data-f="all">All <small id="cAll"></small></button>
   </div>
   <div class="rowhead"><b>Transactions</b><a id="printLink">Print</a></div>
   <div id="list"></div>
@@ -152,7 +152,7 @@ function bucket(o){
   if(o.date<k.t)return 'overdue';if(o.date===k.t)return 'today';if(o.date===k.m)return 'tomorrow';if(o.date===k.a)return 'thirdday';return 'upcoming';
 }
 function lbl(b){return b==='today'?'TODAY':b==='tomorrow'?'TOMORROW':b==='thirdday'?'DAY 3':b==='overdue'?'OVERDUE':b==='upcoming'?'UPCOMING':'NO DATE'}
-var F='today',Q='';
+var F='all',Q='';
 var NR=0;
 var ADMIN_PIN='1122';
 var ADMIN=false;
@@ -272,6 +272,6 @@ function renderDay(list){
   document.getElementById('dsLines').innerHTML=h;
   panel.classList.add('show');
 }
-setF('today');
+setF('all');
 if('serviceWorker' in navigator){window.addEventListener('load',function(){navigator.serviceWorker.register('pending-delivery-sw.js').catch(function(){})})}
 </script></body></html>
