@@ -109,7 +109,7 @@ table.dst tr.total td{background:#EAF0FA;font-weight:800;border-top:2px solid #2
 .rmsg{margin-top:8px;background:#2E7D32;color:#fff;border-radius:10px;padding:8px 10px;font-size:12px;font-weight:800;text-align:center;letter-spacing:.6px}
 </style></head><body>
 <div class="phone">
-  <div class="top"><button class="back" onclick="history.back()">←</button><div class="greet"><b>Hi 👋 Pending Delivery</b><small>Welcome back • Oct - 05 - 2026 22:56</small></div><button class="lockbtn" id="lockBtn">🔒</button><div class="avatar" id="avatar">🧑<i id="cartN">0</i></div></div>
+  <div class="top"><button class="back" onclick="history.back()">←</button><div class="greet"><b>Hi 👋 Pending Delivery</b><small>Welcome back • Oct - 05 - 2026 23:40</small></div><button class="lockbtn" id="lockBtn">🔒</button><div class="avatar" id="avatar">🧑<i id="cartN">0</i></div></div>
   <div class="bal"><small>TOTAL PENDING</small><h1 id="balN">390 orders</h1><div class="sqm" id="balQ">0 sqm • reflects till delivery finishes</div><div class="brand">🚚 DLVR</div><div class="gen">Sale Order No • Item • Qty — live pending list</div></div>
   <div class="abanner" id="abanner">ADMIN MODE - you can mark delivered<button id="lockOff">Lock</button></div><div class="daystrip">
     <button class="day on" data-f="today"><b id="dNum0">--</b><small>TODAY</small><span><i id="sToday">0</i> • <i id="sTodayQ">0</i></span></button>
@@ -153,6 +153,7 @@ function bucket(o){
 }
 function lbl(b){return b==='today'?'TODAY':b==='tomorrow'?'TOMORROW':b==='thirdday'?'DAY 3':b==='overdue'?'OVERDUE':b==='upcoming'?'UPCOMING':'NO DATE'}
 var F='today',Q='';
+var NR=0;
 var ADMIN_PIN='1122';
 var ADMIN=false;
 var HIDDEN=new Set();
@@ -211,7 +212,7 @@ function stats(){
   document.getElementById('cNd').textContent='('+c.nodate+')';document.getElementById('cReady').textContent='('+c.ready+')';document.getElementById('cAll').textContent='('+visList().length+')';
   document.getElementById('sDay3').textContent=c.thirdday;document.getElementById('sDay3Q').textContent=Math.round(q.thirdday)+' sqm';
   document.getElementById('cDay3').textContent='('+c.thirdday+')';
-  var NR=visList().filter(function(o){return !o.ready}).length;
+  NR=visList().filter(function(o){return !o.ready}).length;
   document.getElementById('cartN').textContent=NR;
   document.getElementById('balN').textContent=NR+' orders';
   document.getElementById('balQ').textContent=Math.round(tq)+' sqm • reflects till delivery finishes';
