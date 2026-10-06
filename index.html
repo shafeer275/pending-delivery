@@ -119,7 +119,7 @@ table.dst tr.total td{background:#EAF0FA;font-weight:800;border-top:2px solid #2
 .datepick{display:flex;align-items:center;gap:10px;margin:12px 0;font-size:13px;font-weight:700}.datepick input{min-width:0;flex:1;padding:10px;border:1px solid #D5DBE3;border-radius:10px;background:#fff;font:inherit}.deduction{font-size:12px;line-height:1.6;padding-top:10px}.deduction .green{color:#237333;font-weight:700}table.dst tr.ready-total td{background:#E7F3E9;color:#237333;font-weight:700}
 </style></head><body>
 <div class="phone">
-  <div class="top"><button class="back" onclick="history.back()">←</button><div class="greet"><b>Hi 👋 Pending Delivery</b><small>Welcome back • Oct - 06 - 2026 00:03</small></div><button class="lockbtn" id="lockBtn">🔒</button><div class="avatar" id="avatar">🧑<i id="cartN">0</i></div></div>
+  <div class="top"><button class="back" onclick="history.back()">←</button><div class="greet"><b>Hi 👋 Pending Delivery</b><small>Welcome back • Oct - 07 - 2026 02:19</small></div><button class="lockbtn" id="lockBtn">🔒</button><div class="avatar" id="avatar">🧑<i id="cartN">0</i></div></div>
   <div class="bal"><small>TOTAL PENDING</small><h1 id="balN">390 orders</h1><div class="sqm" id="balQ">0 sqm • excludes ready/delivered</div><div class="gen" id="readyDeduction"></div><div class="gen">Sale Order No • Item • Qty — live pending list</div></div>
   <div class="abanner" id="abanner">ADMIN MODE - you can mark delivered<button id="lockOff">Lock</button></div><div class="daystrip">
     <button class="day" data-f="today"><b id="dNum0">--</b><small>TODAY</small><span><i id="sToday">0</i> • <i id="sTodayQ">0</i></span></button>
@@ -308,6 +308,6 @@ function renderDay(list){
   panel.classList.add('show');
 }
 setF(validDate(requestedDate)?'date':'today');
-if('serviceWorker' in navigator){window.addEventListener('load',function(){navigator.serviceWorker.register('pending-delivery-sw.js').catch(function(){})})}
+if('serviceWorker' in navigator){var __swR=false;window.addEventListener('load',function(){navigator.serviceWorker.register('pending-delivery-sw.js').then(function(reg){try{var p=reg.update();if(p&&p.catch)p.catch(function(){})}catch(e){}reg.addEventListener('updatefound',function(){var nw=reg.installing;if(!nw)return;nw.addEventListener('statechange',function(){if(nw.state==='installed'&&navigator.serviceWorker.controller&&!__swR){__swR=true;window.location.reload()}})})}).catch(function(){})});navigator.serviceWorker.addEventListener('controllerchange',function(){if(!__swR){__swR=true;window.location.reload()}})}
 </script></body></html>
 
